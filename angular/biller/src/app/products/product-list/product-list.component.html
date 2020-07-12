@@ -1,0 +1,53 @@
+<form #addToBill="ngForm" (ngSubmit)="onAddToBill(addToBill.value)">
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)"
+  ngModel name="filter" placeholder="search product">
+</mat-form-field>
+
+<button mat-raised-button color="primary" routerLink="/addProduct">Add New Product</button>
+<button mat-raised-button color="primary" type="submit">Add to bill</button>
+<table mat-table [dataSource]="products" class="mat-elevation-z8">
+
+  - Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" 
+
+   Position Column 
+  <ng-container matColumnDef="productId">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let product"
+    ngDefaultControl ngModel name="id">
+    <mat-checkbox required ngModel name="check">&nbsp;</mat-checkbox>{{product.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef >Name</th>
+    <td mat-cell *matCellDef="let product"
+    ngDefaultControl ngModel name="name"> {{product.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="productModel">
+    <th mat-header-cell *matHeaderCellDef>Model</th>
+    <td mat-cell *matCellDef="let product"
+    ngDefaultControl ngModel name="model"> {{product.model}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="productCompany">
+    <th mat-header-cell *matHeaderCellDef>Company</th>
+    <td mat-cell *matCellDef="let product"
+    ngDefaultControl ngModel name="company"> {{product.company}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="productPrice">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let product"
+    ngDefaultControl ngModel name="price"> {{product.price}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</form>
+
+
+  

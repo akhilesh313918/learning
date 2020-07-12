@@ -1,0 +1,65 @@
+<form class="example-form" (ngSubmit)="onGenBill(genBill)" 
+#genBill="ngForm">
+<button mat-raised-button color="primary" routerLink="/products"> + products</button>
+    <button mat-raised-button color="primary" type="button"
+    (click)="addCustomField()">customize field</button>
+    <button mat-raised-button color="primary" type="submit">Generate Bill</button>
+    
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>Full name</mat-label>
+        <input matInput ngModel name="fullname">
+      </mat-form-field></td>
+    </tr></table>
+  
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput ngModel name="address" matInput placeholder="Ex. 100 Main St"></textarea>
+      </mat-form-field>
+    </p>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+    
+      <td><mat-form-field class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+91 &nbsp;</span>
+            <input matInput ngModel name="telephone" type="tel" matInput placeholder="Mobile No.">
+            </mat-form-field></td>
+    </tr></table>
+
+    <table mat-table [dataSource]="products" class="mat-elevation-z8">
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Item description</th>
+        <td mat-cell *matCellDef="let product"
+        ngDefaultControl ngModel name="description">{{product.name}} {{product.company}}</td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let product"
+        ngDefaultControl><input matInput value="{{product.price}}" ngModel name="price">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="quant">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef=""
+        ngDefaultControl ngModel name="quant"><input matInput></td>
+      </ng-container>
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef=""
+        ngDefaultControl ngModel name="total"><input matInput></td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef=""
+        ngDefaultControl ngModel name="delete">
+        <button type="button" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </form>

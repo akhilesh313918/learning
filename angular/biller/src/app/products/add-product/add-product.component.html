@@ -1,0 +1,33 @@
+<form #addProductForm="ngForm" (ngSubmit)="onAddProduct(addProductForm)">
+  <mat-form-field appearance="fill">
+    <mat-label>Product Id</mat-label>
+    <input matInput required ngModel name="id">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Product Name</mat-label>
+    <input matInput required ngModel name="name">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input matInput matInput required ngModel name="model">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Company</mat-label>
+    <input matInput matInput required ngModel name="company">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput matInput required ngModel name="price">
+  </mat-form-field>
+<div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!addProductForm.valid">Add</button>
+    <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="amber" type="reset" (click)="onReset()">Clear</button>
+    <button mat-raised-button color="amber" type="button" (click)="onUpdate()">Update</button>
+    <button mat-raised-button color="amber" type="button" (click)="onFetch()">Fetch</button>
+</div>
+</form>
