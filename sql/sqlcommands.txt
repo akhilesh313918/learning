@@ -1,0 +1,51 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 show databases;\
+\
+use mysql;\
+\
+create table T_test(name VARCHAR(20), lastname VARCHAR(20));\
+\
+select * from T_test;\
+\
+insert into T_test values ("Ambar","Khatri");\
+\
+insert into employeedb.employee values(1,"Akhi","65",1000);\
+\
+select * from employeedb.employee;\
+\
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '12345678';\
+FLUSH PRIVILEGES;\
+\
+\
+create table users (u_id varchar(20), u_name varchar(50), u_exp varchar(20), u_sal varchar(50) );\
+\
+insert into users values ("1", "Akhilesh Yaduwanshi", "2 years", "$1000");\
+insert into users values ("2", "Shankar Kumar", "9 years", "$2000");\
+insert into users values ("3", "Sridhar Sairam", "15 years", "$2000");\
+insert into users values ("4", "Devesh Mallick", "2 years", "$2000");\
+insert into users values ("5", "Rohit Rana", "9 years", "$2000");\
+insert into users values ("6", "Cosmin Adrian", "20 years", "$20000");\
+\
+select * from users; \
+\
+delete from users where u_id="1";\
+\
+update users set u_name='update test', u_exp='update test', u_sal='update test' where u_id = '7';\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
