@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+mat-spinner{
+  margin: auto;
+}
+.spacer{
+    margin-top: 2rem
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .info-text{
+    text-align: center;
+}
+
+.toolbar{
+  text-align: justify;
+}
+
+.ans{
+  background-color: green;
+}
+  

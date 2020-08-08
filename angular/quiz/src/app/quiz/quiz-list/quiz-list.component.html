@@ -1,0 +1,49 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div *ngIf="isAdmin">
+    <div class="spacer"></div>
+    <mat-toolbar class="toolbar" color="primary">Quiz board</mat-toolbar>
+    <mat-accordion multi="true" *ngIf="quizzes.length > 0 && !isLoading">
+        <mat-expansion-panel *ngFor="let quiz of quizzes; let i = index">
+            <mat-expansion-panel-header>
+                Q{{i+1}}: {{quiz.question}}
+            </mat-expansion-panel-header>
+            <mat-list role="list" *ngFor="let option of quiz.options">
+                <mat-list-item role="listitem">{{option}}</mat-list-item>
+              </mat-list>
+            <p class="ans"> Answer: {{quiz.answer}}</p>
+            <mat-action-row>
+                <a mat-button color="accent" [routerLink]="['/edit',quiz.id]">EDIT</a>
+                <button mat-button color="warn" (click)="onDelete(quiz.id)">DELETE</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-paginator [length]="totatQuiz" [pageSize]="quizPerPage" [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)" *ngIf="quizzes.length > 0"></mat-paginator>
+    <h3 class="info-text mat-body-1" *ngIf="quizzes.length <= 0">Hey!!! add questions to this board.</h3>
+</div>
+
+<div *ngIf="userIsAuthenticated && !isAdmin">
+    <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+    <div class="spacer"></div>
+    <mat-toolbar class="toolbar" color="primary" *ngIf="!isLoading">Quiz board</mat-toolbar>
+    <form #quizForm="ngForm" (submit)="onSubmit(quizForm)">
+        <mat-accordion multi="true" *ngFor="let quiz of quizzes; let i = index">
+            <mat-expansion-panel *ngIf="quizzes.length > 0 && !isLoading">
+                <mat-expansion-panel-header>
+                    Q{{i+1}}: {{quiz.question}}
+                </mat-expansion-panel-header>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                    name="opt.{{quiz.question}}" [(ngModel)]="option[i]" required>
+                    <mat-radio-button class="example-radio-button" *ngFor="let option of quiz.options" [value]="option">
+                        {{option}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <button mat-raised-button color="accent" type="submit" *ngIf="quizzes.length > 0 && !isLoading">submit</button>
+    </form>
+    <mat-paginator [length]="totatQuiz" [pageSize]="quizPerPage" [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)" *ngIf="quizzes.length > 0 && !isLoading"></mat-paginator>
+    <h3 class="info-text mat-body-1" *ngIf="quizzes.length <= 0">Sorry!!! No questions in this board</h3>
+    <h3 class="info-text mat-body-1" *ngIf="isLoading">Submitting your result...</h3>
+</div>

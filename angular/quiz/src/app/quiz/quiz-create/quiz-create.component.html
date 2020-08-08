@@ -1,0 +1,54 @@
+<mat-card>
+    <mat-spinner  *ngIf="isLoading" ></mat-spinner>
+    <form [formGroup]="form" (submit)="onSave()">
+    <mat-form-field>
+        <textarea matInput type="textarea" 
+        formControlName="question" 
+        placeholder="Type your Question ?"></textarea>
+        <mat-error *ngIf="form.get('question').invalid">
+           Please enter a valid Question.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="option1" [(ngModel)]="option1"
+        matInput placeholder="Type option 1 here">
+        <mat-error *ngIf="form.get('option1').invalid">
+            Please enter a valid option
+         </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="option2" [(ngModel)]="option2"
+        matInput placeholder="Type option 2 here" required>
+        <mat-error *ngIf="form.get('option2').invalid">
+            Please enter a valid option
+         </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" formControlName="option3" [(ngModel)]="option3"
+        matInput placeholder="Type option 3 here" required>
+        <mat-error *ngIf="form.get('option3').invalid">
+            Please enter a valid option
+         </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Answer</mat-label>
+        <mat-select formControlName="answer">
+          <mat-option  value={{option1}}>{{option1}}</mat-option>
+          <mat-option  value={{option2}}>{{option2}}</mat-option>
+          <mat-option  value={{option3}}>{{option3}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <button *ngIf="mode==='create'"
+    mat-raised-button
+    color="primary"
+    type="submit">Create</button>
+    <button *ngIf="mode==='edit'"
+    mat-raised-button
+    color="primary"
+    type="submit">Update</button>
+    <button
+    mat-raised-button
+    color="warn"
+    type="button" (click)="onClear()">Clear all fields</button>
+    </form>
+</mat-card>
