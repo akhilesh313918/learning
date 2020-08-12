@@ -14,6 +14,7 @@ export class AuthService{
     private tokenTimer: any
     public isUserAuthenticate = false;
     public isAdmin = false;
+    public error = false;
     public authStatusListener = new Subject<boolean>();
     public adminAuthStatusListener = new Subject<boolean>();
 
@@ -39,18 +40,28 @@ export class AuthService{
         return this.isAdmin;
     }
 
+    isError(){
+        console.log(this.error);
+        return this.error;
+    }
+
     createUser(email: string, password: string){
           console.log("Inside Auth");  
           const authData: AuthData = {email: email, password: password}; 
           this.http.post(BACKEND_URL + "/signup", authData)
           .subscribe(response => {
+            this.router.navigate(['/signupsuccess']);
+          },error => {
+              this.error = true;
           })
     }
 
     login(email: string, password: string){
+        console.log("Inside login");
         const authData: AuthData = {email: email, password: password}; 
         this.http.post<{token: string, isAdmin: any, expiresIn: number}>(BACKEND_URL + "/login", authData)
           .subscribe(response => {
+              console.log("Inside login");
               const token = response.token;
               this.token = token;
               if(token){
@@ -72,6 +83,9 @@ export class AuthService{
                   
               }
               
+          }, (error) => {
+            console.log("there is a error"+error);
+            this.error = true;
           })
     }
 

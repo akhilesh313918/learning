@@ -10,3 +10,6 @@ textarea{
   mat-spinner{
     margin: auto;
   }
+.error{
+  background-color: red;
+}

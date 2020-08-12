@@ -8,12 +8,14 @@ import { QuizListComponent } from './quiz/quiz-list/quiz-list.component';
 import { AuthGuard } from './auth/auth.guard.service';
 import { HomeComponent } from './home/home.component';
 import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
+import { SignupSuccessComponent } from './auth/signup-success/signup-success.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'list', component: QuizListComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'signup', component: SignupComponent},
+    {path: 'signupsuccess', component: SignupSuccessComponent},
     {path: 'create', component: QuizCreateComponent, canActivate: [AuthGuard]},
     {path: 'edit/:quizId', component: QuizCreateComponent, canActivate: [AuthGuard]},
     {path: 'result', component: QuizResultComponent, canActivate: [AuthGuard]},

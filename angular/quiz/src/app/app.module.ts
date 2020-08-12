@@ -22,7 +22,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
 import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { SignupSuccessComponent } from './auth/signup-success/signup-success.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
     SignupComponent,
     QuizListComponent,
     QuizCreateComponent,
-    QuizResultComponent
+    QuizResultComponent,
+    SignupSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
     MatPaginatorModule,
     MatExpansionModule,
     MatRadioModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
