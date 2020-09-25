@@ -1,0 +1,22 @@
+<form [formGroup]="productsaveform" (submit)="onSave()">
+    <div class="container">
+    <div class="form-group">
+        <label>Product:</label>
+        <input type="text" class="form-control" 
+        formControlName="product_name" value="">
+    </div>
+    <div class="form-group">
+        <label>Brand:</label>
+        <input type="text" class="form-control" formControlName="product_brand">
+    </div>
+    <div class="form-group">
+        <label>MadeIn:</label>
+        <input type="text" class="form-control" formControlName="product_madein">
+    </div>
+    <div class="form-group">
+        <label>Price:</label>
+        <input type="text" class="form-control" formControlName="product_price">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>

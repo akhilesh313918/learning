@@ -1,0 +1,11 @@
+.row-cols-1{
+    margin: 5px 0px 5px 0px;
+}
+
+.col-2{
+    border: 1px solid;
+}
+
+.btn-margin {
+    margin: 5px 10px 5px 10px;
+}

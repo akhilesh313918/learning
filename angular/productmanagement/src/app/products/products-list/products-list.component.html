@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row row-cols-1">
+        <button class="btn btn-primary"
+        routerLink="/add">Add product</button>
+    </div>
+    <div class="row">
+        <div class="col-2">Product Id</div>
+        <div class="col-2">Name</div>
+        <div class="col-2">Brand</div>
+        <div class="col-2">Made In</div>
+        <div class="col-2">Price</div>
+        <div class="col-2">Actions</div>
+    </div>
+    <div class="row" *ngFor="let product of products">
+        <div class="col-2">{{product.id}}</div>
+        <div class="col-2">{{product.name}}</div>
+        <div class="col-2">{{product.brand}}</div>
+        <div class="col-2">{{product.madein}}</div>
+        <div class="col-2">{{product.price}}</div>
+        <div class="col-2">
+            <button [routerLink]="['/edit',product.id]" class="btn btn-primary">Edit</button>
+            <button class="btn btn-danger btn-margin" (click)=onDelete(product.id)>Delete</button>
+        </div>
+    </div>
+</div>
