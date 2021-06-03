@@ -1,0 +1,44 @@
+-File structure
+===============
+*In java file there can be any number of classes : code will compile happily
+*In java file there can be only one public class.
+*Public class and file name should be same.
+*There can be mulitple classes in a file and each file can contain main method : Code will be happily compile and 
+there will be multiple .class file after compiling and to execute it you have to give exact compiled file to see the o/p.
+
+-Import statement
+=================
+*There are two type of import statements in Java:
+	1. Implicit : import.java.util*
+	2. Explicit (we are mentioning explicitly class name which we are using)	: import.java.util.ArrayList (Recommended)
+	
+	
+
+-Default Imports(No need to import we can directly use the classes present inside these pacakages)
+================================================================================================
+*java.lang. -> String,Thread, Exception
+
+-Default Pacakage
+=================
+If two classes are under same directory than import statement is not required we can directly create object
+and can use it.
+
+-Pacakage (A group of related items, also pacakage is Encapsulation mechanism)
+=========
+*A group of related classes and interfaces are grouped into separate unit.
+*Pacakage is a keyword in java
+*some ex : java.sql, java.io
+
+	Advantages:
+	==========
+	*For unique identification	
+	*To avoid confusion naming conflicts
+	*Moudalrity
+	*Maintainbility
+	*Security(Not accessbile from some other package until we import it)
+	*Good programming practice to keep calsses in some package.
+
+
+
+	
+	
