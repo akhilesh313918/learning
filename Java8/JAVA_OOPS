@@ -28,7 +28,7 @@ and can use it.
 *A group of related classes and interfaces are grouped into separate unit.
 *Pacakage is a keyword in java
 *some ex : java.sql, java.io
-
+*use internet domain name in reverse for eg. com.durgasoft.ocja
 	Advantages:
 	==========
 	*For unique identification	
