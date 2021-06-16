@@ -38,7 +38,40 @@ and can use it.
 	*Security(Not accessbile from some other package until we import it)
 	*Good programming practice to keep calsses in some package.
 	
-========	
+*In any java program, only one pacakage statement is allowed, more than one pacakage statement
+will give compile time error.
+*Order of pacakage statement is aslo very important in any java program, first thing to be define in
+the program is pacakage statement.
+			For eg. after import statement, pacakage statement will give compile time error
+			
+			correct order
+			=============
+			pacakage statement;
+			import statement;
+			class Test{
+			
+			}
+
+
+class level Modifiers
+======================			
+*public => this class is accessbile from anywhere within or outside the pacakage.
+*default =>	- accessbile Only within the pacakage.
+			- If class is not abstract, happily object creation is possible.
+			- by using final keyword child creation is possible.
+
+Modifiers allowed for Top-level classes are:
+				-public
+				-default
+				-abstract
+				-final
+				-strictfp
+Modifiers allowed for inner classes.
+				-private
+				-protected
+				-static	
+				
+			
 
 
 
