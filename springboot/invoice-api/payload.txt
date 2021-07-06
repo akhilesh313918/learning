@@ -1,0 +1,22 @@
+{
+    "id": 10,
+    "customername": "Ramesh",
+    "customeraddress": "Bhedaghat",
+    "customergstnumber": "23sdf1sdf5",
+    "subtotal": 50.00,
+    "cgst": 3.00,
+    "sgst": 3.00,
+    "igst": 0.00,
+    "total": 100.00,
+    "invoiceitems": [
+        {
+            "itemid": 9,
+            "productname": "Syrotech ONU",
+            "hsncode": "5241",
+            "quantity": 1,
+            "price": 750,
+            "total": 750,
+            "invoice_id": 10
+        }
+    ]
+}
